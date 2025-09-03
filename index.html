@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ഗോവിന്ദ ചാമി - തലൈവർ📈</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Orbitron:wght@400;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0a0a0a, #1a0a0a, #0d0d0d);
+            color: #ff0000;
+            font-family: 'Orbitron', monospace;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="20" cy="20" r="1" fill="%23ff0000" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="%23ff0000" opacity="0.05"/><circle cx="40" cy="80" r="1" fill="%23ff0000" opacity="0.08"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(180deg, rgba(255,0,0,0.1), rgba(0,0,0,0.8));
+            border-bottom: 2px solid #ff0000;
+            box-shadow: 0 0 20px rgba(255,0,0,0.5);
+        }
+        
+        .banner {
+            width: 470px;
+            height: 264px;
+            max-width: 90%;
+            border: 3px solid #ff0000;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(255,0,0,0.8);
+            animation: pulse 2s infinite;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+            text-shadow: 0 0 10px #ff0000;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(255,0,0,0.8); }
+            50% { box-shadow: 0 0 50px rgba(255,0,0,1); }
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #ff0000;
+            box-shadow: 0 0 25px rgba(255,0,0,0.7);
+            margin: 0 auto 1rem;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            animation: rotate 10s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .title {
+            font-family: 'Creepster', cursive;
+            font-size: 3rem;
+            text-shadow: 0 0 20px #ff0000;
+            margin-bottom: 1rem;
+            animation: flicker 3s infinite;
+        }
+        
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #ff6666;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px #ff0000;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section {
+            background: rgba(0,0,0,0.8);
+            border: 2px solid #ff0000;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 0 20px rgba(255,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff0000, #000, #ff0000);
+            z-index: -1;
+            border-radius: 15px;
+            animation: borderGlow 3s linear infinite;
+        }
+        
+        @keyframes borderGlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .section h2 {
+            font-family: 'Creepster', cursive;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            text-shadow: 0 0 15px #ff0000;
+        }
+        
+        .about {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #ff9999;
+            text-shadow: 0 0 5px #ff0000;
+        }
+        
+        .commands {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        
+        .command {
+            background: rgba(255,0,0,0.1);
+            border: 1px solid #ff0000;
+            border-radius: 10px;
+            padding: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .command:hover {
+            background: rgba(255,0,0,0.2);
+            box-shadow: 0 0 15px rgba(255,0,0,0.5);
+            transform: translateY(-5px);
+        }
+        
+        .command-name {
+            color: #ff3333;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 8px #ff0000;
+        }
+        
+        .command-desc {
+            color: #ffcccc;
+            font-size: 0.9rem;
+        }
+        
+        .install-section {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255,0,0,0.2), rgba(0,0,0,0.9));
+        }
+        
+        .install-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff0000, #cc0000);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(255,0,0,0.5);
+            text-shadow: 0 0 10px #000;
+            margin-top: 1rem;
+        }
+        
+        .install-btn:hover {
+            background: linear-gradient(45deg, #cc0000, #ff0000);
+            box-shadow: 0 0 30px rgba(255,0,0,0.8);
+            transform: scale(1.05);
+        }
+        
+        .developer {
+            text-align: center;
+            color: #ff6666;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            text-shadow: 0 0 10px #ff0000;
+        }
+        
+        .glitch {
+            position: relative;
+            animation: glitch 2s infinite;
+        }
+        
+        @keyframes glitch {
+            0%, 90%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+        
+        .blood-drip {
+            position: absolute;
+            width: 2px;
+            height: 20px;
+            background: linear-gradient(to bottom, #ff0000, transparent);
+            animation: drip 4s infinite;
+        }
+        
+        @keyframes drip {
+            0% { top: -20px; opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="banner">
+            <img src="banner.gif" alt="ഗോവിന്ദ ചാമി Banner" style="width: 100%; height: 100%; object-fit: cover; border-radius: 7px;">
+        </div>
+        <img src="logo.png" alt="ഗോവിന്ദ ചാമി Logo" class="logo">
+        <h1 class="title glitch">ഗോവിന്ദ ചാമി</h1>
+        <p class="subtitle">തലൈവർ📈 - The Ultimate Troll Master</p>
+        <div class="blood-drip" style="left: 20%; animation-delay: 0s;"></div>
+        <div class="blood-drip" style="left: 80%; animation-delay: 2s;"></div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>About Me 💀</h2>
+            <div class="about">
+                <p>Yo twin! I'm ഗോവിന്ദ ചാമി, your resident jail WiFi password expert 📶 – I got that unlimited rizz for every network connection, no cap! 😼</p>
+                
+                <p>I'm that 24x7 gym member in jail, but my workout routine? Pure iron rod cutting, gng! 🛠️</p>
+
+                <p>I got the IRL cheat code: GOVINDA_CHAMI_UNLIMITED_ESCAPE 💨</p>
+                
+                <p>My horoscope be like: പുതിയ ജയിൽ shift, പുതിയ വാതിൽ തുറക്കൽ 🚪 I stay mewing through every escape, maintaining that sigma grindset!</p>
+                
+                <p>I'm here to absolutely mog everyone with my trolling game. If any goon drops vulgar words, I'll edge them into submission with my punishment system - my edging streak for justice is unmatched! 💪</p>
+                
+                <p>When new members join, I welcome them with that gyatt energy, making sure they know who runs this server. I control voice, chat, memes - the whole tspmo package!</p>
+                
+                <p>സിയബൊ 🪫🥀<br><strong>നന്ദി, വീണ്ടും വരരുത്🙏</strong></p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>My Commands 🔥</h2>
+            <div class="commands">
+                <div class="command">
+                    <div class="command-name">/warn</div>
+                    <div class="command-desc">I'll warn these goons when they step out of line - my rizz includes discipline, twin!</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-name">/goon</div>
+                    <div class="command-desc">Time to absolutely mog members with my elite trolling skills - they don't know what hit 'em!</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-name">!serverinfo</div>
+                    <div class="command-desc">I'll show you the server stats - member count, creation date, roles, channels - the whole gurt!</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-name">!userinfo</div>
+                    <div class="command-desc">I expose user info - join date, roles, account age - I see everything, no cap!</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-name">!avatar</div>
+                    <div class="command-desc">I'll show your pfp in all its glory - let everyone see that sigma face!</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-name">!ping</div>
+                    <div class="command-desc">I check my connection speed - gotta make sure my trolling game stays sharp!</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-name">!level</div>
+                    <div class="command-desc">I track your XP gains from messaging - building that activity streak like it's mewing progress!</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-name">!meme</div>
+                    <div class="command-desc">I drop fire memes that'll have you rolling - my meme game is unmatched, gng!</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-name">!leaderboard</div>
+                    <div class="command-desc">I show the top 10 most active users - see who's really putting in that grindset work!</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-name">!poll "Question" Option1 Option2</div>
+                    <div class="command-desc">I create polls with reactions for voting - democracy with that sigma twist!</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-name">!tally</div>
+                    <div class="command-desc">I reveal poll results - showing who really has the people's rizz!</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section install-section">
+            <h2>Add Me To Your Server 👹</h2>
+            <p style="color: #ff9999; font-size: 1.1rem; margin-bottom: 1rem;">Ready to let me mog your server? Click below and witness the chaos unfold!</p>
+            <a href="https://discord.com/oauth2/authorize?client_id=1406253279939268728&permissions=8&integration_type=0&scope=bot" 
+               class="install-btn" target="_blank">
+                🔥 INSTALL ഗോവിന്ദ ചാമി 🔥
+            </a>
+        </div>
+
+        <div class="developer">
+            <p>Developed by <strong>@suss#3800</strong></p>
+            <p>Bringing chaos and rizz to Discord servers worldwide 💀</p>
+        </div>
+    </div>
+
+    <script>
+        // Spooky interactive effects (cursor trail removed)
+
+        // Random glitch effects
+        setInterval(() => {
+            const elements = document.querySelectorAll('.section');
+            const randomElement = elements[Math.floor(Math.random() * elements.length)];
+            randomElement.style.transform = 'translateX(' + (Math.random() * 4 - 2) + 'px)';
+            setTimeout(() => {
+                randomElement.style.transform = 'translateX(0)';
+            }, 100);
+        }, 3000);
+
+        // Screen shake effect occasionally
+        setInterval(() => {
+            if (Math.random() > 0.95) {
+                document.body.style.animation = 'shake 0.5s';
+                setTimeout(() => {
+                    document.body.style.animation = '';
+                }, 500);
+            }
+        }, 2000);
+
+        // Add shake animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-2px); }
+                75% { transform: translateX(2px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
